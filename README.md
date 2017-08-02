@@ -37,7 +37,7 @@ Note: `preprocess.py` must be modified to work with other MIDI files (the releva
 
 [Ji-Sung Kim](https://jisungkim.com)  
 Princeton University, Department of Computer Science  
-jisungk (at) cs.princeton.edu  
+hello (at) jisungkim.com  
 
 ### Citations
 
