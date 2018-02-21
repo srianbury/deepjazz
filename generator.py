@@ -31,8 +31,13 @@ import lstm
 ''' Helper function to sample an index from a probability array '''
 def __sample(a, temperature=1.0):
     a = np.log(a) / temperature
-    a = np.exp(a) / np.sum(np.exp(a))
-    return np.argmax(np.random.multinomial(1, a, 1))
+    dist = np.exp(a) / np.sum(np.exp(a))
+    choices = range(len(a))
+    return np.random.choice(choices, p=dist)
+    #a = np.log(a) / temperature
+    #a = np.exp(a) / np.sum(np.exp(a))
+    #return np.argmax(np.random.multinomial(1, a, 1)) #ValueError: sum(pvals[:-1] > 1.0
+    #addtional error handling for above https://github.com/llSourcell/How-to-Generate-Music-Demo/issues/4
 
 ''' Helper function to generate a predicted value from a given matrix '''
 def __predict(model, x, indices_val, diversity):
